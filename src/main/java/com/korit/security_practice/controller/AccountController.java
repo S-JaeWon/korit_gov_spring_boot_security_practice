@@ -7,10 +7,7 @@ import com.korit.security_practice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/account")
@@ -33,5 +30,15 @@ public class AccountController {
             @AuthenticationPrincipal Principal principal
     ) {
         return ResponseEntity.ok(accountService.editUsername(editUsernameReqDto, principal));
+    }
+
+    @PostMapping("/verify/send")
+    public ResponseEntity<?> sendVerifyCode() {
+        return ResponseEntity.ok(null);
+    }
+
+    @GetMapping("/verify/get")
+    public ResponseEntity<?> getVerifyCode() {
+        return ResponseEntity.ok(null);
     }
 }
