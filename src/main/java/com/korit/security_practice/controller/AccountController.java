@@ -16,6 +16,11 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
+    @GetMapping("/principal")
+    public ResponseEntity<?> getPrincipal(@AuthenticationPrincipal Principal principal) {
+        return ResponseEntity.ok(principal);
+    }
+
     @PostMapping("/edit/password")
     public ResponseEntity<?> editPassword(
             @RequestBody EditPasswordReqDto editPasswordReqDto,
