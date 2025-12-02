@@ -1,5 +1,6 @@
 package com.korit.security_practice.controller;
 
+import com.korit.security_practice.dto.Request.OAuth2MergeReqDto;
 import com.korit.security_practice.dto.Request.OAuth2SignupReqDto;
 import com.korit.security_practice.service.OAuth2AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,10 @@ public class OAuth2Controller {
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody OAuth2SignupReqDto oAuth2SignupReqDto) {
         return ResponseEntity.ok(oAuth2AuthService.signup(oAuth2SignupReqDto));
+    }
+
+    @PostMapping("/merge")
+    public ResponseEntity<?> merge(@RequestBody OAuth2MergeReqDto oAuth2MergeReqDto) {
+        return ResponseEntity.ok(oAuth2AuthService.merge(oAuth2MergeReqDto));
     }
 }
